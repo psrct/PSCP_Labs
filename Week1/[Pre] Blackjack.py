@@ -18,4 +18,3 @@ def main():
             total -= 10
     print(total)
 main()
-        
