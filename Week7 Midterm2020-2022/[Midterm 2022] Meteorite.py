@@ -1,11 +1,12 @@
 '''[Midterm 2022] Meteorite'''
 def shoot(weight, number, lower):
     '''number * ? = weight'''
-    shot = 1
+    shot = 0
     count = 0
-    if weight > lower:
-        if (weight / number) > lower:
-            
-    print(shoot)
+    while not weight < lower:
+        weight = weight / number
+        shot += number ** count
+        count += 1
+    print(shot)
 
 shoot(float(input()), int(input()), float(input()))
