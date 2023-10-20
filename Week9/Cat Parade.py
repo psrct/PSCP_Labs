@@ -2,23 +2,30 @@
 
 def parade():
     '''Cat Parade Function'''
-    catlist = ""
+    animal = []
     while True:
-        cats = input()
-        if cats == "END":
+        cat = input()
+        if cat == "END":
             break
+        elif "," in cat:
+            cat = cat.split(", ")
+            animal.extend(cat)
         else:
-            catlist += cats + "," or cats[1:] if " " in cats
-    catlist = catlist.split(",")
+            animal.append(cat)
     while True:
-        if "IT'S A DOG" in catlist:
-            dog = catlist.index("IT'S A DOG")
-            catlist.remove("IT'S A DOG")
-            catlist.pop(dog-1)
+        if "IT'S A DOG" in animal:
+            dog = animal.index("IT'S A DOG")
+            animal.pop(dog)
+            animal.pop(dog-1)
         else:
-            catlist.remove("")
-            catlist.sort()
             break
-    for i in catlist:
-        print(i)
+    catlist = animal.copy()
+    catlist.sort()
+    for i in range(len(catlist)):
+        if catlist[i] == catlist[i-1] and i != 0:
+            continue
+        else:
+            print("{} {} {}".format(catlist[i], (animal.index(catlist[i])+1)\
+                , catlist.count(catlist[i])))
+
 parade()
